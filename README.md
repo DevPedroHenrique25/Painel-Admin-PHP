@@ -9,7 +9,7 @@
 
 ## 📌 Sobre o Projeto
 
-Este é um **Painel Administrativo completo**, desenvolvido com foco em **organização estrutural, segurança e escalabilidade**.
+Este é um **Painel Administrativo completo**, desenvolvido com foco em **organização estrutural, segurança, escalabilidade e material de estudo**.
 
 Mais do que implementar funcionalidades, o objetivo deste projeto é **evoluir continuamente a arquitetura**, aproximando-se progressivamente de um padrão robusto inspirado em MVC e boas práticas modernas.
 
@@ -34,7 +34,10 @@ Mais do que implementar funcionalidades, o objetivo deste projeto é **evoluir c
 
 ## 🎥 Demonstração em Vídeo
 
-[Assista à demonstração do sistema](LINK_AQUI)
+[Assista à demonstração do sistema] https://youtu.be/gL-Ypm0rF5o
+
+## 🎥 Preview
+![Preview Desktop](preview.png)
 
 # 🔐 Funcionalidades Implementadas
 
@@ -73,7 +76,9 @@ Mais do que implementar funcionalidades, o objetivo deste projeto é **evoluir c
 - Validação de extensões permitidas (.png, .jpg, etc.)  
 - Bloqueio de arquivos não autorizados  
 - Tratamento antes de salvar no banco  
-- Organização estruturada de diretórios  
+- Organização estruturada de diretórios
+- excluir arquivo da pasta uploads
+- gerar id único para cada imagem do usuário para evitar conflitos 
 
 ---
 
@@ -91,6 +96,7 @@ Mais do que implementar funcionalidades, o objetivo deste projeto é **evoluir c
 ```bash
 /
 ├── ajax/
+│
 ├── classes/
 │   ├── Email.php
 │   ├── Mysql.php
@@ -98,27 +104,49 @@ Mais do que implementar funcionalidades, o objetivo deste projeto é **evoluir c
 │   ├── Site.php
 │   └── Usuario.php
 │
-├── pages/                 # Páginas públicas
+├── database/                    # Contém o arquivo SQL para importar no phpMyAdmin e criar toda a estrutura do sistema
+│   └── Projeto_01.sql
+│
+├── pages/                       # Páginas públicas
 │   ├── 404.php
 │   ├── contato.php
 │   ├── home.php
 │   ├── noticia_single.php
 │   └── noticias.php
 │
-├── painel/                # Área administrativa
+├── painel/                      # Área administrativa
 │   ├── index.php
 │   ├── login.php
 │   ├── main.php
 │   │
-│   ├── pages/             # Módulos administrativos
+│   ├── pages/                  # Módulos administrativos
 │   │   ├── home.php
+│   │
+│   │   ├── adicionar-usuario.php
+│   │   ├── editar-usuario.php
+│   │
 │   │   ├── gerenciar-noticias.php
 │   │   ├── cadastrar-noticia.php
 │   │   ├── editar-noticia.php
+│   │
 │   │   ├── gerenciar-categorias.php
 │   │   ├── cadastrar-categorias.php
 │   │   ├── editar-categoria.php
-│   │   ├── editar-usuario.php
+│   │
+│   │   ├── listar-servicos.php
+│   │   ├── cadastrar-servico.php
+│   │   ├── editar-servico.php
+│   │
+│   │   ├── listar-depoimentos.php
+│   │   ├── cadastrar-depoimento.php
+│   │   ├── editar-depoimento.php
+│   │
+│   │   ├── listar-slides.php
+│   │   ├── cadastrar-slides.php
+│   │   ├── editar-slide.php
+│   │
+│   │   ├── editar-site.php
+│   │
 │   │   └── permissao_negada.php
 │   │
 │   ├── css/
@@ -129,10 +157,32 @@ Mais do que implementar funcionalidades, o objetivo deste projeto é **evoluir c
 ├── fonts/
 ├── images/
 ├── js/
+│
 ├── .htaccess
 ├── config.php
 └── index.php
 A estrutura será refinada progressivamente para se aproximar de um padrão arquitetural mais próximo de MVC.
+
+🌐 Uso da API do Google Maps
+O projeto pode integrar mapas utilizando a API do Google Maps via JavaScript. Exemplo de inclusão:
+<script src="https://maps.googleapis.com/maps/api/js?key=SUA_CHAVE_AQUI&v=3.exp"></script>
+
+⚠️ Importante: Não é recomendável subir a chave da API diretamente para o GitHub, pois qualquer pessoa poderia usá-la.
+🔒 Boas práticas para o GitHub
+
+Variável de ambiente
+Crie um arquivo .env (não adicione ao GitHub):
+GOOGLE_MAPS_KEY=SuaChaveAqui
+
+Use a variável no seu código ou substitua no build.
+Arquivo de configuração local
+Crie config.js ou config.php com a chave, e adicione no .gitignore.
+Restringir a chave no Google Cloud
+Configure restrição por domínio ou IP para que a chave só funcione no seu site.
+Exemplo de uso seguro no JavaScript
+const script = document.createElement('script');
+script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_MAPS_KEY}&v=3.exp`;
+document.head.appendChild(script);
 
 Para acessar o painel:
 
@@ -159,15 +209,34 @@ Apache
 MySQL
 
 2️⃣ Clonar o Repositório
-git clone URL_DO_REPOSITORIO
+git clone https://github.com/DevPedroHenrique25/Painel-Admin-PHP
 Mover para:
 
 C:\xampp\htdocs\
-3️⃣ Criar Banco de Dados
-Acesse:
 
+3️⃣ # 🗄 Banco de Dados
+O arquivo de estrutura do banco de dados está disponível em:
+
+database/Projeto_01.sql
+
+## 📥 Como importar
+1. Acesse:
 http://localhost/phpmyadmin
-Crie um banco com o nome configurado em config.php.
+
+2. Crie um banco de dados com o nome:
+projeto_01
+
+3. Clique em:
+Importar
+
+4. Selecione o arquivo:
+database/painel_admin.sql
+
+5. Clique em Executar
+
+---
+
+Após isso, o sistema estará pronto para uso.
 
 4️⃣ Configurar Conexão
 define('HOST', 'localhost');
