@@ -8,8 +8,8 @@
 		$corpo.="<hr>";
 	}
 	$info = array('assunto'=>$assunto,'corpo'=>$corpo);
-	$mail = new Email('vps.dankicode.com','testes@dankicode.com','gui123456','Guilherme');
-	$mail->addAdress('contato@dankicode.com','Guilherme');
+	$mail = new Email('seu host','seu usuario','senha','seu nome');
+	$mail->addAdress('destinatario','nome do destinatario');
 	$mail->formatarEmail($info);
 	if($mail->enviarEmail()){
 		$data['sucesso'] = true;
