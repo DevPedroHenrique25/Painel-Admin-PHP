@@ -17,7 +17,7 @@
 	<section class="descricao-autor">
 		<div class="center">
 		<div class="w100 left">
-			<h2 class="text-center"><img src="<?php echo INCLUDE_PATH ?>images/foto.jpg" /> <?php echo $infoSite['nome_autor']; ?></h2>
+			<h2 class="text-center"><img src="<?php echo INCLUDE_PATH ?>images/foto.jpg" /> Pedro Henrique</h2>
 			<p><?php echo $infoSite['descricao']; ?></p>
 		</div><!--w50-->
 	

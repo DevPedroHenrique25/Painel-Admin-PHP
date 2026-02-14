@@ -1,0 +1,262 @@
+# 🛠 Painel Administrativo PHP (Em Evolução)
+
+<p align="center">
+  <img src="https://img.shields.io/badge/STATUS-EM%20EVOLUÇÃO-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/ARQUITETURA-MELHORIA%20CONTÍNUA-purple?style=for-the-badge" />
+</p>
+
+---
+
+## 📌 Sobre o Projeto
+
+Este é um **Painel Administrativo completo**, desenvolvido com foco em **organização estrutural, segurança e escalabilidade**.
+
+Mais do que implementar funcionalidades, o objetivo deste projeto é **evoluir continuamente a arquitetura**, aproximando-se progressivamente de um padrão robusto inspirado em MVC e boas práticas modernas.
+
+> Não é apenas sobre fazer funcionar.  
+> É sobre construir algo que possa crescer sem virar um caos.
+
+---
+
+# 🚀 Tecnologias Utilizadas
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![PHP](https://img.shields.io/badge/PHP%20(OOP)-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Apache](https://img.shields.io/badge/Apache-D22128?style=for-the-badge&logo=apache&logoColor=white)
+![PHPMailer](https://img.shields.io/badge/PHPMailer-008000?style=for-the-badge&logo=maildotru&logoColor=white)
+![Mailtrap](https://img.shields.io/badge/Mailtrap-22C55E?style=for-the-badge&logo=mailtrap&logoColor=white)
+![FontAwesome](https://img.shields.io/badge/Font%20Awesome-528DD7?style=for-the-badge&logo=fontawesome&logoColor=white)
+
+---
+
+## 🎥 Demonstração em Vídeo
+
+[Assista à demonstração do sistema](LINK_AQUI)
+
+# 🔐 Funcionalidades Implementadas
+
+## Autenticação e Permissões
+
+- Login com sessão  
+- Cookies configurados com segurança 
+- Controle de permissões por nível de usuário  
+- Restrição de acesso para usuários não administradores  
+- Proteção contra acesso direto a rotas internas  
+- Validações no back-end  
+
+---
+
+## 📰 Gestão de Conteúdo
+
+- Cadastro de notícias  
+- Cadastro de categorias  
+- Gerenciamento completo de notícias  
+- Ordenação dinâmica por categoria  
+- Paginação baseada na quantidade real de registros  
+
+---
+
+## ⚙ Administração
+
+- Cadastro e edição de usuários  
+- Configuração geral do site  
+- Gestão de conteúdos institucionais  
+- Ordenação dinâmica de dados  
+
+---
+
+## 📂 Upload com Validação
+
+- Validação de extensões permitidas (.png, .jpg, etc.)  
+- Bloqueio de arquivos não autorizados  
+- Tratamento antes de salvar no banco  
+- Organização estruturada de diretórios  
+
+---
+
+## 🌐 Configuração com `.htaccess`
+
+- Bloqueio de acesso a diretórios sensíveis  
+- Impede listagem de arquivos  
+- Reescrita de URLs
+- Proteção de arquivos internos  
+
+---
+
+# 🏗 Estrutura Atual do Projeto
+
+```bash
+/
+├── ajax/
+├── classes/
+│   ├── Email.php
+│   ├── Mysql.php
+│   ├── Painel.php
+│   ├── Site.php
+│   └── Usuario.php
+│
+├── pages/                 # Páginas públicas
+│   ├── 404.php
+│   ├── contato.php
+│   ├── home.php
+│   ├── noticia_single.php
+│   └── noticias.php
+│
+├── painel/                # Área administrativa
+│   ├── index.php
+│   ├── login.php
+│   ├── main.php
+│   │
+│   ├── pages/             # Módulos administrativos
+│   │   ├── home.php
+│   │   ├── gerenciar-noticias.php
+│   │   ├── cadastrar-noticia.php
+│   │   ├── editar-noticia.php
+│   │   ├── gerenciar-categorias.php
+│   │   ├── cadastrar-categorias.php
+│   │   ├── editar-categoria.php
+│   │   ├── editar-usuario.php
+│   │   └── permissao_negada.php
+│   │
+│   ├── css/
+│   ├── js/
+│   └── uploads/
+│
+├── estilo/
+├── fonts/
+├── images/
+├── js/
+├── .htaccess
+├── config.php
+└── index.php
+A estrutura será refinada progressivamente para se aproximar de um padrão arquitetural mais próximo de MVC.
+
+Para acessar o painel:
+
+/painel
+🖥 Requisitos
+PHP 7.4+
+
+MySQL
+
+Apache
+
+XAMPP (recomendado)
+
+⚙ Instalação e Execução
+1️⃣ Instalar o XAMPP
+Baixe em:
+
+https://www.apachefriends.org/
+
+Ative:
+
+Apache
+
+MySQL
+
+2️⃣ Clonar o Repositório
+git clone URL_DO_REPOSITORIO
+Mover para:
+
+C:\xampp\htdocs\
+3️⃣ Criar Banco de Dados
+Acesse:
+
+http://localhost/phpmyadmin
+Crie um banco com o nome configurado em config.php.
+
+4️⃣ Configurar Conexão
+define('HOST', 'localhost');
+define('USER', 'root');
+define('PASSWORD', '');
+define('DATABASE', 'nome_do_banco');
+📧 Configuração de E-mail (Mailtrap)
+O sistema utiliza envio de e-mail via SMTP.
+
+Para ambiente local, recomenda-se o uso do Mailtrap.
+
+1️⃣ Criar Conta
+https://mailtrap.io/
+
+2️⃣ Configurar no Projeto
+define('SMTP_HOST', 'sandbox.smtp.mailtrap.io');
+define('SMTP_PORT', 2525);
+define('SMTP_USER', 'SEU_USERNAME');
+define('SMTP_PASS', 'SUA_SENHA');
+define('SMTP_NAME', 'Nome do Sistema');
+
+
+🌐 Acesso ao Projeto
+Frontend:
+http://localhost/projeto_01_servidor
+
+Área Administrativa:
+http://localhost/projeto_01_servidor/painel
+
+📈 Roadmap de Evolução
+🔹 Fase 1 – Estrutura Base (Atual)
+CRUD completo
+
+Sistema de autenticação
+
+Controle de permissões
+
+Paginação dinâmica
+
+Upload com validação
+
+Proteção via .htaccess
+
+🔹 Fase 2 – Refatoração Estrutural
+Separação clara de camadas
+
+Organização próxima de MVC
+
+Isolamento completo da camada de dados
+
+Redução de acoplamento
+
+# 📚 Aprendizados
+
+Durante o desenvolvimento deste projeto foram aplicados conceitos como:
+
+- Organização orientada a responsabilidades
+- Controle de acesso por nível
+- Validação server-side
+- Estruturação progressiva rumo ao padrão MVC
+- Separação parcial entre regra de negócio e apresentação
+
+# 🧩 Desafios Técnicos
+
+- Evitar acesso direto a rotas internas
+- Garantir controle de permissões consistente
+- Manter organização mesmo sem framework
+- Estruturar projeto escalável usando PHP puro
+
+
+🎯 Objetivo
+Construir um sistema que evolua progressivamente, demonstrando:
+Maturidade arquitetural
+Aplicação de boas práticas
+Evolução estrutural consciente
+Preparação para escalar
+
+# 🧠 Decisões Arquiteturais
+Este projeto foi desenvolvido sem framework propositalmente,
+com o objetivo de compreender profundamente:
+- Organização manual de rotas
+- Estruturação de camadas
+- Controle de dependências
+- Responsabilidades de classes
+
+Este projeto representa a transição de código funcional para código arquitetado.
+
+🤝 Contribuições
+Sugestões de melhoria estrutural, segurança, organização ou arquitetura são extremamente bem-vindas.
+
+Construir é importante.
+Evoluir é essencial.
